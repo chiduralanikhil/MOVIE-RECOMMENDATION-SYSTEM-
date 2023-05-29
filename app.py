@@ -75,7 +75,7 @@ if st.button('Show Recommendation'):
 st.text('\n')
 st.text('\n')
 st.text('\n')
-st.text('--------------------------MADE BY KOTHAGUNDLA YUVA SANDEEP-------------------------')
+st.text('--------------------------MADE BY CHIDURALA NIKHIL -------------------------')
 
 
 
