@@ -10,7 +10,9 @@ def fetch_poster(movie_id):
     poster_path = data['poster_path']
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
-
+movies = pickle.load(open('movies_pkl','rb'))
+movie_list = movies['title'].values
+similarity = pickle.load(open('similarity.pkl','rb'))
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
@@ -27,10 +29,7 @@ def recommend(movie):
 
 
 st.header('Movie Recommendation System')
-movies = pickle.load(open('movies_pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
 
-movie_list = movies['title'].values
 selected_movie = st.selectbox(
     "Type or select a movie from the dropdown",
     movie_list
